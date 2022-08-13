@@ -1040,7 +1040,7 @@ textarea{
     margin-left: 10px;
     top: 0;
     text-align: center;
-    padding-top: 30%;
+    padding-top: 10px;
     background-color: rgba(238, 240, 243, 0.7);
     visibility: hidden;
     opacity: 0.3;
@@ -1051,7 +1051,8 @@ textarea{
 }
 .caption h3{
     text-decoration: underline;
-    text-decoration-color: #e6007e;
+    text-decoration-color: black;
+    margin-bottom:10px;
     
 }
 .caption span a{
