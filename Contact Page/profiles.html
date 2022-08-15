@@ -14,6 +14,13 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js">
+
+</script>
+
+<script src=".\Page.js"> </script>
   <link rel="stylesheet" href="profiles.css"  >
   <title>Contact Us</title>
 
@@ -210,11 +217,11 @@
 </div>
 
 <div id='formy'  class="Tpopup">
-<form class="register" method="post" action="Login.html" id="popup">
-  <input type="text" placeholder="firstname" id="fname"><br>
-  <input type="text" placeholder="secondname"><br>
-  <input type="password" placeholder="password"><br>
-  <input type="password" placeholder="confirm password"><br>
+<form class="register" method="post" id="popup">
+  <input type="text" placeholder="firstname" id="fname" required><br>
+  <input type="text" placeholder="secondname" required><br>
+  <input type="password" id="pswd" placeholder="password"><br>
+  <input type="password" id="pswdrpt" placeholder="confirm password"><br>
   <button class="submit" onclick="closePopup()">Register</button>
   <button onclick="closePopup()">close</button>
 
@@ -222,7 +229,7 @@
   
 </form>
 </div>
-<h1 class="Heading  w3-animate-zoom"> OUR STORIES</h1><br><br>
+<h1 class="Heading  w3-animate-spin"> OUR STORIES</h1><br><br>
 <div id="slider-container" class="slider">
   <div class="slide">
     <img src="./images/Mauri.jpeg" alt="just a pic">
@@ -352,7 +359,6 @@
     </div>
 </div>
 </div>
-<script src="Page.js"></script>
 
 <script>
 
@@ -413,6 +419,57 @@ function events() {
 }
 
 events();
+
+
+$(document).ready(function(){
+
+
+$("form[id='myform']").validate({
+  errorClass: "error fail-alert",
+  validClass: "valid success-alert",
+  rules: {
+      'Email': {
+          required: true,
+          email: true
+      },
+      'firstName': {
+          required: true,
+          minlength: 3
+      },
+      'lastName': {
+          required: true,
+      },
+      'pswd':{
+          required: true,
+           minlength:8
+      
+      },
+      'pswdrpt' :{
+        required: true,
+        equalTo:'#pswd'
+
+      },
+  },
+  messages: {
+      Email: {email:"Please enter a valid email address."},
+      firstname: {minlength:"You have to enter name(3chars)"},
+      lastName:{minlength:"You have to enter name(3chars)"},
+      pswd:{ minlength:"Chose a strong password",
+      required:'Compulsory field'
+    },
+      pswdrpt:{equalTo:'Pasword not the same',
+               required:'Compulsory field'
+    }
+  },
+
+  submitHandler: function(form) {
+form.submit();
+  }
+
+  });
+}); 
+
+
 
  function getData(){
 const welkieVar=document.getElementsByName('firstname').value;
