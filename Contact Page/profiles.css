@@ -2484,7 +2484,7 @@ z-index: 10;
     
    
 }
-.foote a:link, a:visited{
+.footer a:link, a:visited{
     background-color: #011140;
     color: grey;
     text-decoration: underline white;
