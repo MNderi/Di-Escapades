@@ -622,6 +622,8 @@ font-family: 'Great Vibes', cursive;
 	align-items: center;
 	justify-content: center;
 	min-height: 130vh;
+    color: #e6007e;
+    font-weight: bolder;   
     background-color:var(--backgroundColor);
 }
 
